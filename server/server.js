@@ -13,9 +13,12 @@ app.use(bodyParser.json());
 // Add live reload
 app.use(livereload({port: livereload}));
 
-app.get('/', function (req, res) {
+app.use('/api', require('./controllers/controller'));
+
+
+/*app.get('/', function (req, res) {
   res.render('index');
-});
+});*/
 
 var server = app.listen( (process.env.PORT || 3000), function () {
   var host = server.address().address;
